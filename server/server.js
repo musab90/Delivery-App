@@ -4,6 +4,9 @@ import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
 import authRouter from './router/Auth.js';
 import userRouter from './router/user.js';
+import foodRouter from './router/food.js';
+import driverRouter from './router/driver.js';
+import orderRouter from './router/order.js';
 dotenv.config()
 
 
@@ -25,6 +28,9 @@ app.use(express.json())
 app.use(cookieParser())
 app.use('/api/auth', authRouter)
 app.use('/api/users', userRouter)
+app.use('/api/food', foodRouter)
+app.use('/api/order', orderRouter)
+app.use('/api/driver', driverRouter)
 
 
 
