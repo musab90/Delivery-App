@@ -20,18 +20,26 @@ const DeliverSchema = new mongoose.Schema({
         required: true
     },
     driverstat:{
-        type: [String],
-        default: ''
+        type: String,
     },
-    driverRequest:{
-        type: [String]
-    },
+    driverRequest:[
+        {
+            customerId:{
+                type:String,
+               
+            },
+            location:{
+                type: String,
+                
+            },
+        },
+    ],
     method:{
         type: Number,
         required: true
     },
     status:{
-        type: Array,
+        type: String,
         default: 'pending'
     },
 }, { timestamps: true })

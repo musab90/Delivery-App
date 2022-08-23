@@ -5,7 +5,7 @@ import { verifyAuth, verifyAuthisAdmin, verifyToken } from './verifyToken.js'
 
 
 //create order
-router.post("/", verifyToken, async (req, res) => {
+router.post("/create", verifyToken, async (req, res) => {
     const newOrder = new Order(req.body);
   
     try {

@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 import authRouter from './router/Auth.js';
 import userRouter from './router/user.js';
 import foodRouter from './router/food.js';
-import driverRouter from './router/driver.js';
+import deliverRouter from './router/deliver.js';
 import orderRouter from './router/order.js';
 dotenv.config()
 
@@ -30,7 +30,7 @@ app.use('/api/auth', authRouter)
 app.use('/api/users', userRouter)
 app.use('/api/food', foodRouter)
 app.use('/api/order', orderRouter)
-app.use('/api/driver', driverRouter)
+app.use('/api/deliver', deliverRouter)
 
 
 

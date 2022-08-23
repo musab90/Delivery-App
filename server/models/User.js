@@ -19,8 +19,7 @@ const userSchema = new mongoose.Schema({
         type: Number
     },
     status:{
-        type: [String],
-        default: ''
+        type: String,
     },
     isAdmin:{
         type: Boolean,

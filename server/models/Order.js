@@ -8,12 +8,12 @@ const OrderSchema = new mongoose.Schema({
       required: true
     },
     restaurent:{
-      type:mongoose.Schema.Types.String,
-      ref: 'Food'
+      type: String,
+      required: true
       
     },
     status:{
-      type: Array,
+      type: String,
       default: 'pending'
     },
     method:{

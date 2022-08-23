@@ -1,5 +1,5 @@
 import express from 'express'
-import Food from '../models/Food.js'
+import Deliver from '../models/Deliver.js'
 import { verifyAuth, verifyAuthisAdmin } from './verifyToken.js'
 const router = express.Router()
 
@@ -7,13 +7,9 @@ const router = express.Router()
 //create food
 router.post('/create', verifyAuthisAdmin, async(req, res) => {
     
+    const create = new Deliver(req.body) 
+
     try {
-        
-        const create = new Food({ 
-            name: req.body.name, 
-            restaurent: req.body.restaurent, 
-            foodCategory: req.body.foodCategory 
-        }) 
         const saveFood = await create.save() 
         res.status(200).json(saveFood)
     } catch (error) {
@@ -25,10 +21,10 @@ router.post('/create', verifyAuthisAdmin, async(req, res) => {
 //update food
 router.put('/find/:id', verifyAuthisAdmin, async(req, res)=>{
     try {
-        const updateFood = await Food.findByIdAndUpdate(req.params.id, {
+        const updateDeliver = await Deliver.findByIdAndUpdate(req.params.id, {
             $set: req.body
         },{new: true})
-        res.status(200).json(updateFood)
+        res.status(200).json(updateDeliver)
         
     } catch (error) {
         res.status(500).json({ message: error.message })
@@ -37,8 +33,8 @@ router.put('/find/:id', verifyAuthisAdmin, async(req, res)=>{
 //delte food
 router.delete('/find:id', verifyAuthisAdmin, async(req, res)=>{
     try {
-        await Food.findByIdAndDelete(req.params.id)
-        res.status(200).json("Food successfully deleted ")
+        await Deliver.findByIdAndDelete(req.params.id)
+        res.status(200).json("Deliver successfully deleted ")
     } catch (error) {
         res.status(500).json({ message: error.message })
     }
@@ -46,8 +42,8 @@ router.delete('/find:id', verifyAuthisAdmin, async(req, res)=>{
 //get food
 router.get('/:id', verifyAuth, async(req, res)=>{
     try {
-        const getFood = await Food.findById(req.params.id)
-        res.status(200).json(getFood)
+        const getDeliver = await Deliver.findById(req.params.id)
+        res.status(200).json(getDeliver)
     } catch (error) {
         res.status(500).json({ message: error.message })
     }
@@ -55,8 +51,8 @@ router.get('/:id', verifyAuth, async(req, res)=>{
 //getAll foods
 router.get('/find/:id', verifyAuth, async(req, res)=>{
     try {
-        const getFoods = await Food.findById(req.params.id)
-        res.status(200).json(getFoods)
+        const getDelivers = await Deliver.findById(req.params.id)
+        res.status(200).json(getDelivers)
     } catch (error) {
         res.status(500).json({ message: error.message })
     }
