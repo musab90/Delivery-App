@@ -26,10 +26,10 @@ const DeliverSchema = new mongoose.Schema({
         {
             customerId:{
                 type:String,
-               
+                required: true
             },
             location:{
-                type: String,
+                type: [String],
                 
             },
         },
